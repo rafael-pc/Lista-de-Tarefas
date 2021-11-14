@@ -4,7 +4,7 @@ O usuário pode adicionar uma tarefa preenchendo a entrada e ao clicar em ENTER,
 
 A lista de tarefas do usuário é armazenada localmente, portanto, quando atualizar a página sempre poderá encontrar a lista lá.
 
-[Link da Lista de Tarefas](https://rafael-pc.github.io/Lista-de-Tarefas/)
+[Link da Lista de Tarefas](https://github.com/rafael-pc/lista-de-tarefas)
 <br><br>
 
 ### Sobre mim
