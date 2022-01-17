@@ -1,15 +1,25 @@
-# Lista de Tarefas Usando JavaScript
+## Projeto Lista de Tarefas usando JavaScript
+<br>
 
-O usuário pode adicionar uma tarefa preenchendo a entrada e ao clicar em ENTER, depois disso pode verificar a tarefa quando terminar ou removê-la usando o botão de exclusão.
+Projeto de uma lista de tarefas usando JavaScript puro.
+<br><br>
 
-A lista de tarefas do usuário é armazenada localmente, portanto, quando atualizar a página sempre poderá encontrar a lista lá.
+Funcionalidades:
 
-[Link da Lista de Tarefas](https://rafael-pc.github.io/lista-de-tarefas/)
+* Visualização adaptada ao tamanho da tela do dispositivo.
+
+* Cada tarefa adicionada e concluida pode ser tachada atravez de um checkbox.
+
+* Cada tarefa adicionada podem ser apagada ao clicar no item da lixeira.
+
+* Todas alterações são salvas no navegador. 
+<br><br>
+
+[Demo Lista de Tarefas](https://rafael-pc.github.io/lista-de-tarefas/)
 <br><br>
 
 ### Sobre mim
 <br>
 
-[![Github Badge](https://img.shields.io/badge/GitHub-000000?&style=flat-square&logo=GitHub&logoColor=LINK_GIT)](https://github.com/rafael-pc)
 
 [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white=LINK_LINKEDIN)](https://www.linkedin.com/in/rafael-pereira-01ab6012a/)
