@@ -17,9 +17,3 @@ Funcionalidades:
 
 [Demo Lista de Tarefas](https://rafael-pc.github.io/lista-de-tarefas/)
 <br><br>
-
-### Sobre mim
-<br>
-
-
-[![Linkedin Badge](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white=LINK_LINKEDIN)](https://www.linkedin.com/in/rafael-pereira-01ab6012a/)
