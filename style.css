@@ -17,8 +17,8 @@ h1{
     margin-top: 30px;
 }
 
-input[type=checkbox]:checked + p.conteudo{
-    text-decoration: line-through;
+form{
+    display: inline;
 }
 
 .container{
@@ -35,7 +35,7 @@ input[type=checkbox]:checked + p.conteudo{
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
-.textfield input{
+#new-task{
     width: 70%;
     height: 45px;
     font-size: 15px;
@@ -46,12 +46,12 @@ input[type=checkbox]:checked + p.conteudo{
     border-radius: 5px;
 }
 
-.textfield input:focus{
+#new-task:focus{
     outline: none;
     border-color: #5254ec;
 }
 
-.textfield button{
+#add-task{
     position: relative;
     float: right;
     width: 26%;
@@ -64,62 +64,71 @@ input[type=checkbox]:checked + p.conteudo{
     color: #ffffff;
     cursor: pointer;
     outline: none;
+    transition: background-color 0.2s ease-in-out;
 }
 
-#list{
-    display: flex;
-    background-color: #ffffff;
-    padding: 20px 20px;
+#add-task:hover {
+	background-color: #474ace;
+}
+
+#task-list{
     margin-top: 30px;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     width: 100%;
 }
 
-.item{
+#task-list li{
     display: flex;
     background-color: rgb(228, 228, 228);
     height: 50px;
     padding: 10px 10px;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 5px;
-    height: auto;
+    height: auto; 
+    margin-top: 12px;
 }
 
-form{
-    display: inline;
-}
-
-ul{
-    width: 518px;
-}
-
-li{
-    list-style: none;
-}
-
-.item:not(:last-child) {
+#task-list:not(:last-child) {
     margin-bottom: 1rem;
 }
 
-.item p{
+#task-list span{
     font-size: 0.9em;
     font-weight: 400;  
 }
 
-.conteudo{   
-    padding: 10px;
-    width: 100%;
+.far.fa-trash-alt{
+    background-color: #ff0000;
+    color: #ffffff;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
- .regular-checkbox, i{
+.far.fa-trash-alt:hover{
+    background-color: #c82333;
+}
+
+.completed .task-text{
+	text-decoration: line-through;
+	color: gray;
+}
+
+.task-text{  
+    padding: 10px;
+    width: 100%;
+    word-break: break-word;
+}
+
+.regular-checkbox, i{
     cursor: pointer;  
 }
 
 .regular-checkbox {
-	-webkit-appearance: none;
+	appearance: none; 
 	background-color: #fafafa;
 	border: 2px solid #a4a7a7;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
@@ -146,15 +155,6 @@ li{
 	top: 0px;
 	left: 3px;
 	color: #fafafa;
-}
-
-.big-checkbox {
-	padding: 18px;
-}
-
-.big-checkbox:checked:after {
-	font-size: 28px;
-	left: 6px;
 }
 
 @media only screen and (max-width: 600px) {

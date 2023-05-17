@@ -1,99 +1,75 @@
-const listElement = document.querySelector('ul')
-const inputElement = document.querySelector('input')
-const buttonElement = document.querySelector('button')
+const newTaskInput = document.getElementById("new-task");
+const addTaskButton = document.getElementById("add-task");
+const taskList = document.getElementById("task-list");
 
-const tarefas = JSON.parse(localStorage.getItem('listTarefas')) || []
+function createNewTask(taskText) {
+    const newTaskItem = document.createElement("li");
+    newTaskItem.innerHTML = `
+        <input type="checkbox" class="regular-checkbox">
+        <span class="task-text">${taskText}</span>
+        <button type="button" class="far fa-trash-alt"></button>
+    `;
+    taskList.appendChild(newTaskItem);
 
-buttonElement.setAttribute('onclick', 'addTerefa()')
+    const deleteButton = newTaskItem.querySelector(".far.fa-trash-alt");
+    deleteButton.addEventListener("click", function() {
+        newTaskItem.remove();
+        saveTasks();
+    });
 
-function addTerefa() {
-    if (inputElement.value === '') {
-        alert("Voce deve digitar alguma tarefa.");
-    } else {
-        const tarefa = inputElement.value
-        tarefas.push(tarefa)
-        inputElement.value = ''
-        mostraTarefas()
-        salvarNoLocalStorage()
-    }
-}
-
-document.addEventListener('keypress', function (event) {
-    if (event.key == 'Enter') {
-        if (inputElement.value === '') {
-            alert("Você deve digitar alguma tarefa.");
+    const checkbox = newTaskItem.querySelector(".regular-checkbox");
+    checkbox.addEventListener("change", function() {
+        if (checkbox.checked) {
+            newTaskItem.classList.add("completed");
+            newTaskItem.querySelector(".task-text").classList.add("completed");
         } else {
-            const tarefa = inputElement.value
-            tarefas.push(tarefa)
-            inputElement.value = ''
-            mostraTarefas()
-            salvarNoLocalStorage()
+            newTaskItem.classList.remove("completed");
+            newTaskItem.querySelector(".task-text").classList.remove("completed");
         }
+        saveTasks();
+    });
+    saveTasks();
+}
+
+function saveTasks() {
+    const taskItems = taskList.querySelectorAll("li");
+    const tasks = [];
+    for (let i = 0; i < taskItems.length; i++) {
+        const taskText = taskItems[i].querySelector(".task-text").innerText;
+        const isCompleted = taskItems[i].classList.contains("completed");
+        tasks.push({text: taskText, completed: isCompleted});
     }
-})
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
-function mostraTarefas() {
-
-    listElement.innerHTML = ''
-
-    for (item of tarefas) {
-        const itemList = document.createElement('li')
-        itemList.setAttribute('class', 'item')
-
-        const checkList = document.createElement('input')
-        checkList.setAttribute('type', 'checkbox')
-        checkList.setAttribute('class', 'regular-checkbox')
-        checkList.setAttribute('store', item)
-        itemList.appendChild(checkList)
-
-        const descricao = document.createElement('p')
-        descricao.setAttribute('class', 'conteudo')
-        descricao.textContent = item
-        itemList.appendChild(descricao)
-
-        const linkElement = document.createElement('i')
-        linkElement.setAttribute('class', 'far fa-trash-alt')
-
-        const indice = tarefas.indexOf(item)
-        linkElement.setAttribute('onclick', `removeTarefa(${indice})`)
-
-        itemList.appendChild(linkElement)
-
-        listElement.appendChild(itemList)
-
-        const boxes = document.querySelectorAll("input[type='checkbox']");
-        for (var i = 0; i < boxes.length; i++) {
-            const box = boxes[i];
-            if (box.hasAttribute("store")) {
-                setupBox(box);
-            }
-        }
-
-        function setupBox(box) {
-            const storageId = box.getAttribute("store");
-            const oldVal = localStorage.getItem(storageId);
-            box.checked = oldVal === "true" ? true : false;
-            box.addEventListener("change", function () {
-                localStorage.setItem(storageId, this.checked);
-            });
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    for (let i = 0; i < tasks.length; i++) {
+        const taskText = tasks[i].text;
+        const isCompleted = tasks[i].completed;
+        createNewTask(taskText);
+        const newTaskItem = taskList.lastChild;
+        if (isCompleted) {
+            newTaskItem.classList.add("completed");
+            newTaskItem.querySelector(".regular-checkbox").checked = true;
         }
     }
 }
 
-mostraTarefas()
-
-function salvarNoLocalStorage() {
-    localStorage.setItem('listTarefas', JSON.stringify(tarefas))
-}
-
-function removeTarefa(indice) {
-    const confirmar = window.confirm('Deseja mesmo apagar esta tarefa?')
-    if(confirmar == true){
-        tarefas.splice(indice, 1)
-        mostraTarefas()
-        salvarNoLocalStorage()
+addTaskButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    const taskText = newTaskInput.value.trim();
+    if (taskText !== "") {
+        createNewTask(taskText);
+        newTaskInput.value = "";
     }
-}
+});
 
+newTaskInput.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        addTaskButton.click();
+    }
+});
 
-
+loadTasks();
