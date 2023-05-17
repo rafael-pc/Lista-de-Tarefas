@@ -1,164 +1,170 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Open Sans', sans-serif;
-    background-color: rgb(241, 241, 241);
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: rgb(241, 241, 241);
 }
 
-h1{
-    font-size: 2em;
-    text-align: center;
-    color: rgb(87, 87, 87);
-    width: 100%;
-    margin-top: 30px;
+h1 {
+  font-size: 2em;
+  text-align: center;
+  color: rgb(87, 87, 87);
+  width: 100%;
+  margin-top: 30px;
 }
 
-form{
-    display: inline;
+form {
+  display: inline;
 }
 
-.container{
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px 20px;
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px 20px;
 }
 
-.textfield{
-    background-color: #ffffff;
-    padding: 30px 20px;
-    border-radius: 5px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+.textfield {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-#new-task{
-    width: 70%;
-    height: 45px;
-    font-size: 15px;
-    border: 2px solid #d1d3d4;
-    padding: 12px;
-    color: #111111;
-    font-weight: 500;
-    border-radius: 5px;
+#new-task {
+  width: 70%;
+  height: 45px;
+  font-size: 15px;
+  border: 2px solid #d1d3d4;
+  padding: 12px;
+  color: #111111;
+  font-weight: 500;
+  border-radius: 5px;
 }
 
-#new-task:focus{
-    outline: none;
-    border-color: #5254ec;
+#new-task:focus {
+  outline: none;
+  border-color: #5254ec;
 }
 
-#add-task{
-    position: relative;
-    float: right;
-    width: 26%;
-    height: 45px;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 0.9em;
-    background-color: #5254ec;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.2s ease-in-out;
+#add-task {
+  position: relative;
+  float: right;
+  width: 26%;
+  height: 45px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.9em;
+  background-color: #5254ec;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
 }
 
 #add-task:hover {
-	background-color: #474ace;
+  background-color: #474ace;
 }
 
-#task-list{
-    margin-top: 30px;
-    width: 100%;
+#task-list {
+  margin-top: 30px;
+  width: 100%;
 }
 
-#task-list li{
-    display: flex;
-    background-color: rgb(228, 228, 228);
-    height: 50px;
-    padding: 10px 10px;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px;
-    height: auto; 
-    margin-top: 12px;
+#task-list li {
+  display: flex;
+  background-color: rgb(228, 228, 228);
+  height: 50px;
+  padding: 10px 10px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  height: auto;
+  margin-top: 12px;
 }
 
 #task-list:not(:last-child) {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-#task-list span{
-    font-size: 0.9em;
-    font-weight: 400;  
+#task-list span {
+  font-size: 0.9em;
+  font-weight: 400;
 }
 
-.far.fa-trash-alt{
-    background-color: #ff0000;
-    color: #ffffff;
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+.far.fa-trash-alt {
+  background-color: #ff0000;
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.far.fa-trash-alt:hover{
-    background-color: #c82333;
+.far.fa-trash-alt:hover {
+  background-color: #c82333;
 }
 
-.completed .task-text{
-	text-decoration: line-through;
-	color: gray;
+.completed .task-text {
+  text-decoration: line-through;
+  color: gray;
 }
 
-.task-text{  
-    padding: 10px;
-    width: 100%;
-    word-break: break-word;
+.task-text {
+  padding: 10px;
+  width: 100%;
+  word-break: break-word;
 }
 
-.regular-checkbox, i{
-    cursor: pointer;  
+.regular-checkbox,
+i {
+  cursor: pointer;
 }
 
 .regular-checkbox {
-	appearance: none; 
-	background-color: #fafafa;
-	border: 2px solid #a4a7a7;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
-	border-radius: 3px;
-	display: inline-block;
-	position: relative;
+  appearance: none;
+  background-color: #fafafa;
+  border: 2px solid #a4a7a7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
 }
 
-.regular-checkbox:active, .regular-checkbox:checked:active {
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+.regular-checkbox:active,
+.regular-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .regular-checkbox:checked {
-	background-color: #5254ec;
-	border: 2px solid #adb8c0;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+  background-color: #5254ec;
+  border: 2px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 }
 
 .regular-checkbox:checked:after {
-	content: '\2714';
-	font-size: 14px;
-	position: absolute;
-	top: 0px;
-	left: 3px;
-	color: #fafafa;
+  content: "\2714";
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #fafafa;
 }
 
 @media only screen and (max-width: 600px) {
-    .textfield button {
-      font-size: 0.8em;
-    }
+  .textfield button {
+    font-size: 0.8em;
+  }
 }
