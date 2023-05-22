@@ -1,4 +1,4 @@
-## Projeto Lista de Tarefas usando JavaScript
+# Projeto Lista de Tarefas usando JavaScript
 <br>
 
 Projeto de uma lista de tarefas usando JavaScript puro.
